@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/variables' as *;
+
+body{
+  font-family: $font-stack;
+  background-color: $primary-color;
+  padding: $padding-base;
+}

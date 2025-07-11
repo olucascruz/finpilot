@@ -1,0 +1,46 @@
+@use '../../../styles/variables';
+
+.landing-body{
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+
+img{
+    width: 400px;
+    height: 400px;
+    align-self: center;
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+
+
+    align-items: center;
+}
+
+.ct{
+    width:400px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: variables.$confirm-color;
+    border: none;
+}
+
+.ct:hover{
+    color: white;
+    background-color: variables.$confirm-color-hover;
+
+}
+
+h2{
+    text-align: center;
+}
+.about{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
