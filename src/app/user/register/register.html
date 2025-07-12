@@ -1,0 +1,30 @@
+<div class="register-body">
+<form [formGroup]="formRegister" (ngSubmit)="sendCredentials()">
+    <h1>Cadastre-se</h1>
+    <mat-form-field>
+      <mat-label>Nome completo</mat-label>
+      <input formControlName="name" matInput placeholder="Nome" value="">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput placeholder="Email" value="">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input formControlName="confirmPassword" matInput placeholder="Confirm a senha" value="">
+    </mat-form-field>
+
+    <button matButton="tonal" type="submit">Registrar</button>
+
+    <p>Já possui conta? <a href="">Login</a></p>
+    
+
+</form>
+
+<img src="financePilotLogo.png" alt="logo do finance pilot">
+</div>

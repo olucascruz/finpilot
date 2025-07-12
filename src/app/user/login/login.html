@@ -1,0 +1,27 @@
+<div class="login-body">
+<form [formGroup]="formLogin" (ngSubmit)="sendCredentials()">
+  <h1>Login</h1>
+  
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" value="">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input matInput  [type]="hide ? 'password' : 'text'"  placeholder="Senha" value="">
+      <mat-icon matSuffix (click)="hide = !hide">
+        {{hide ? 'visibility_off' : 'visibility'}}
+      </mat-icon>
+    </mat-form-field>
+
+  
+  <button matButton="tonal" type="submit">Entrar</button>
+
+    <p>Não possui conta? <a href="">Cadastre-se</a></p>
+    
+
+</form>
+
+<img src="financePilotLogo.png" alt="logo do finance pilot">
+
+</div>

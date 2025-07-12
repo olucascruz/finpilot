@@ -4,8 +4,13 @@
     flex-direction: row;
     height: 95vh;
     align-content: center;
+    padding-left: 40px;
+
 }
 
+h1{
+    color: #0A2E50;
+}
 form{
     display: flex;
     flex-direction: column;
@@ -15,21 +20,6 @@ form{
     height: 400px;
     justify-content: space-between;
     border-radius: 10px;
-}
-
-
-button[type="submit"]{
-    display: block; 
-    margin-top: 130px;
-    margin-bottom: 10px;
-    align-self: center;
-    width: 140px;
-    background-color: #8985FF;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    margin-top: 100px;
 }
 
 
