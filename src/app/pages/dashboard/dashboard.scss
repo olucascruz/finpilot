@@ -1,0 +1,130 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-color: #d0e2f2;
+
+  .sidebar {
+    background: #f0f0f0;
+    width: 220px;
+    padding: 1.5rem 1rem;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 1rem;
+        cursor: pointer;
+        border-radius: 6px;
+        margin-bottom: 0.5rem;
+        transition: background 0.3s;
+
+        &.active,
+        &:hover {
+          background-color: #dcdcdc;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .dashboard-main {
+    flex: 1;
+    padding: 2rem;
+
+    header {
+      h1 {
+        font-size: 2rem;
+        color: #0b2f4a;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+
+      .card {
+        background: #fff;
+        padding: 1.25rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        h3 {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+          color: #333;
+        }
+
+        p {
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: #0b2f4a;
+        }
+      }
+    }
+
+    .charts {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      gap: 1rem;
+
+      .chart {
+        flex: 1 1 45%;
+        background: #fff;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        h4 {
+          margin-bottom: 1rem;
+          color: #333;
+          font-size: 1rem;
+        }
+
+        canvas {
+          width: 100% !important;
+          height: 300px !important;
+        }
+      }
+    }
+
+    .notifications {
+      margin-top: 2.5rem;
+
+      h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: #0b2f4a;
+      }
+
+      .notification {
+        background: #ffe5e5;
+        border-left: 5px solid #e53935;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+
+        strong {
+          display: block;
+          margin-bottom: 0.3rem;
+          color: #c62828;
+        }
+
+        p {
+          font-size: 0.95rem;
+          color: #444;
+        }
+      }
+    }
+  }
+}

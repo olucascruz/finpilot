@@ -4,7 +4,11 @@ import { Register } from '../user/register/register';
 import { LadingPage } from '../pages/lading-page/lading-page';
 
 export const routes: Routes = [
-    {path:'', component: LadingPage},
-    {path:'login', component: Login},
-    {path:'register', component: Register}
+    { path: '', component: LadingPage },
+    { path: 'login', component: Login },
+    { path: 'register', component: Register },
+    { path: 'dashboard',
+        loadComponent: () =>
+            import('../pages/dashboard/dashboard').then(m => m.Dashboard)
+    }
 ];
