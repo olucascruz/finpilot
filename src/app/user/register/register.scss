@@ -1,33 +1,108 @@
-.register-body{
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    height: 95vh;
-    align-content: center;
-    padding-left: 40px;
+.register-container {
+  min-height: calc(100vh - 190px);
+  background-color: #0760e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem;
 }
 
-form{
+.register-box {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  background-color: #0066ff;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1280px) {
+    flex-direction: column;
+    height: auto;
+    max-width: 90%;
+  }
+}
+
+.register-left, .register-right {
+  width: 50%;
+  padding: 3rem 2rem;
+}
+
+.register-left {
+  background-color: #e6e6e6;
+  border-radius: 30px 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    color: #0066ff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  form {
     display: flex;
     flex-direction: column;
-    background-color: #D9D9D9;
-    padding: 20px;
-    width: 500px;
-    height: auto;
-    justify-content: space-between;
-    border-radius: 10px;
+    gap: 1rem;
+
+    .full-width {
+      width: 100%;
+    }
+
+    .btn-register {
+      border-radius: 30px;
+      padding: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .login-text {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+
+      a {
+        color: #0066ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+    }
+  }
 }
 
+.register-right {
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-p{
-    align-self: center
-}
+  .ilustracao-register {
+    width: 450px;
+    height: 450px;
+    margin-bottom: 0.1rem;
+  }
 
-img{
-    width: 300px;
-    height: 300px;
-    align-self: center;
-    margin-top: 20px;
-    margin-left: 30%;
+  .highlight {
+    font-size: 1.2rem;
+    color: white;
+    padding: 0 1rem;
+    text-align: center;
 
+    span {
+      color: #f3ff00;
+      font-weight: bold;
+    }
+
+    
+  }
 }

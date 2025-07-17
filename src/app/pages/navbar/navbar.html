@@ -1,21 +1,24 @@
- <nav class="navbar">
-        <div class="navbar-container">
+<nav class="navbar">
+    <div class="navbar-container">
 
-            <div class="navbar-left">
-                <img src="LogoDeitada.png" alt="Logo deitada FinancePilot" class="navbar-logo-img">
-            </div>
-
-            <ul class="navbar-center">
-                <li><a routerLink="/" routerLinkActive="active">Início</a></li>
-                <li><a routerLink="/sobre" routerLinkActive="active">Sobre</a></li>
-                <li><a routerLink="/contato" routerLinkActive="active">Contato</a></li>
-            </ul>
-
-            <div class="navbar-right">
-                <!-- <a routerLink="/login" routerLinkActive="active" class="btn-login">Login</a> -->
-                <button class="btn-login" (click)="irParaDashboard()">Login</button>
-                <a routerLink="/cadastro" routerLinkActive="active" class="btn-cadastro">Cadastrar</a>
-            </div>
-
+        <div class="navbar-left">
+            <img src="LogoDeitada.png" alt="Logo deitada FinancePilot" class="navbar-logo-img">
         </div>
-    </nav>
+
+        <ul class="navbar-center">
+            <!-- <li><a routerLink="/" routerLinkActive="active">Início</a></li>
+                <li><a routerLink="/porqueEscolher" routerLinkActive="active">Sobre</a></li>
+                <li><a routerLink="/contato" routerLinkActive="active">Contato</a></li> -->
+            <li><a [routerLink]="['/']" fragment="Inicio">Início</a></li>
+            <li><a [routerLink]="['/']" fragment="porqueEscolher" routerLinkActive="active">Sobre</a></li>
+            <li><a [routerLink]="['/']" fragment="contato" routerLinkActive="active">Contato</a></li>
+        </ul>
+
+        <div class="navbar-right">
+            <a routerLink="/login" routerLinkActive="active" class="btn-login">Login</a>
+            <!-- <button class="btn-login" (click)="irParaLogin()">Login</button> -->
+            <a routerLink="/register" routerLinkActive="active" class="btn-cadastro">Cadastrar</a>
+            <!-- <button class="btn-cadastro" (click)="irParaCadastro()">Cadastro</button> -->
+        </div>
+    </div>
+</nav>

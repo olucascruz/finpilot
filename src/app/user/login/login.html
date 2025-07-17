@@ -1,27 +1,62 @@
-<div class="login-body">
-<form [formGroup]="formLogin" (ngSubmit)="sendCredentials()">
-  <h1>Login</h1>
-  
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Email" value="">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Senha</mat-label>
-      <input matInput  [type]="hide ? 'password' : 'text'"  placeholder="Senha" value="">
-      <mat-icon matSuffix (click)="hide = !hide">
-        {{hide ? 'visibility_off' : 'visibility'}}
-      </mat-icon>
-    </mat-form-field>
+<app-navbar></app-navbar>
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-left">
+      
+      <h2>Acesse sua conta</h2>
+      <p class="subtitle">Preencha seus dados</p>
 
-  
-  <button matButton="tonal" type="submit">Entrar</button>
+      <form [formGroup]="formLogin" (ngSubmit)="sendCredentials()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" placeholder="Digite seu e-mail" />
+          <mat-error *ngIf="formLogin.get('email')?.hasError('required')">
+            E-mail é obrigatório
+          </mat-error>
+          <mat-error *ngIf="formLogin.get('email')?.hasError('email')">
+            E-mail inválido
+          </mat-error>
+        </mat-form-field>
 
-    <p>Não possui conta? <a href="">Cadastre-se</a></p>
-    
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="senha"
+            placeholder="Digite sua senha"
+          />
+          <button mat-icon-button matSuffix type="button" (click)="hide = !hide" tabindex="-1">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="formLogin.get('senha')?.hasError('required')">
+            Senha é obrigatória
+          </mat-error>
+          <mat-error *ngIf="formLogin.get('senha')?.hasError('minlength')">
+            Mínimo de 6 caracteres
+          </mat-error>
+        </mat-form-field>
 
-</form>
+        <div class="options">
+          <mat-checkbox formControlName="rememberMe">Lembrar-me</mat-checkbox>
+          <a href="#">Esqueceu sua senha?</a>
+        </div>
 
-<img src="financePilotLogo.png" alt="logo do finance pilot">
+        <button mat-raised-button color="primary" class="btn-login" type="submit">
+          Login
+        </button>
 
+        <p class="register-text">Não possui conta? <a routerLink="/cadastro">Cadastra-se</a></p>
+      </form>
+    </div>
+
+    <div class="login-right">
+      <h1>Bem vindo de volta!</h1>
+      <img src="/investfin.png" alt="Ilustração de finanças" class="ilustracao-login" />
+
+      <p class="highlight">
+        Simples, rápido e seguro: organize sua vida financeira <span>em minutos.</span>
+      </p>
+    </div>
+  </div>
 </div>

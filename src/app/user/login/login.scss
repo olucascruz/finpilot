@@ -1,37 +1,123 @@
-.login-body{
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    height: 95vh;
-    align-content: center;
-    padding-left: 40px;
-
+.login-container {
+  min-height: calc(104vh - 110px);
+  background-color: #0760e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem;
 }
 
-h1{
-    color: #0A2E50;
+.login-box {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  background-color: #0066ff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1280px) {
+    flex-direction: column;
+    height: auto;
+    max-width: 90%;
+  }
 }
-form{
+
+.login-left, .login-right {
+  width: 50%;
+  padding: 3rem 2rem;
+}
+
+.login-left {
+  background-color: #e6e6e6;
+  border-radius: 30px 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    color: #0066ff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  form {
     display: flex;
     flex-direction: column;
-    background-color: #D9D9D9;
-    padding: 20px;
-    width: 500px;
+    gap: 1rem;
+
+    .full-width {
+      width: 100%;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+
+      a {
+        color: #0066ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+    }
+
+    .btn-login {
+      border-radius: 30px;
+      padding: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .register-text {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+
+      a {
+        color: #0066ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.login-right {
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .ilustracao-login {
+    max-width: 75%;
     height: 400px;
-    justify-content: space-between;
-    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+
+  .highlight {
+    font-size: 1rem;
+    color: white;
+
+    span {
+      color: #f3ff00;
+      font-weight: bold;
+    }
+  }
 }
-
-
-p{
-    align-self: center;
-}
-
-img{
-    width: 300px;
-    height: 300px;
-    align-self: center;
-    margin-top: 20px;
-    margin-left: 30%;
-}
-
