@@ -1,23 +1,86 @@
+
+h1{
+    font-size: 40px;
+}
+
 .profile-body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: aqua;
-    width:80%;
     height: 100vh;
-    margin-left: 10%;
-}
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+    box-sizing: border-box;
+  }
 
 .div-title{
     display: flex;
     justify-content: left;
-    width: 100%;
+    width: 92%;
 }
 
-.haha{
+.role{
+    font-size: 16px;
+}
+
+.column-content > p{
+    margin-top:0;
+    font-size: 20px;
+}
+
+
+.name{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-top: 50px;
+}
+
+
+.card-section{
     background-color: aliceblue;
-    width: 80%;
-    height: 20%;
+    width: 90%;
+    height: auto;
     border-radius: 20px;
     padding-left: 20px;
+    padding-right: 20px;
+
+    margin-bottom: 30px;
+}
+
+.body-content >img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+.card-section > h3{
+    font-size: 32px;
+    color: #0A2E50;
+}
+
+
+.column-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.body-content{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.first{
+    justify-content: left;
+}
+
+.label-info{
+    color: #3E4851;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
