@@ -1,6 +1,5 @@
 <div class="employee-list-body">
-  <h3 class="titulo">Trabalhadores</h3>
-  <table class="tabela">
+  <table class="employee-table">
     <thead>
       <tr>
         <th></th>
@@ -10,10 +9,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of usuarios" (click)="selecionarUsuario(user)">
+      <tr class="line-content" *ngFor="let user of usuarios" (click)="selecionarUsuario(user)">
         <td><button class="btn-gear">⚙️</button></td>
         <td>{{ user.nome }}</td>
-        <td><strong>{{ user.email }}</strong></td>
+        <td>{{ user.email }}</td>
         <td>{{ user.cargo }}</td>
       </tr>
     </tbody>

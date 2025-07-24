@@ -1,7 +1,7 @@
 .container {
   background-color: #cbdff0;
   padding: 2rem;
-  height: 100vh;
+  height: 100%;
 }
 
 .card {
@@ -10,32 +10,16 @@
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   padding: 1rem;
   overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.solicitacoes-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
-}
-.solicitacoes-table th{
-    width: 5%;
-}
-.solicitacoes-table th,
-.solicitacoes-table td {
-  padding: 0.8rem;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
-}
-
-.solicitacoes-table th:first-child
-.solicitacoes-table td:first-child {
-  width: 20%;
-}
 
 .botoes {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+  margin-top: 20px;
 }
 
 button.recusar {
@@ -43,7 +27,7 @@ button.recusar {
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
-  border-radius: 1rem;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -52,6 +36,52 @@ button.aceitar {
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
-  border-radius: 1rem;
+  border-radius: 10px;
   cursor: pointer;
+}
+
+
+.solicitacoes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+
+  thead {
+    background-color: #f9f9f9;
+    th {
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+
+  tbody {
+    td {
+      text-align: center;
+      padding: 12px;
+
+
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      // &:first-child {
+      //   text-align: center;
+      //   display: flex;
+      //   align-items: center;
+      //   gap: 8px;
+      //   font-weight: bold;
+      //   color: #222;
+      // }
+    }
+
+    tr:nth-child(even) {
+      background: #f7f8fc;
+    }
+  }
 }

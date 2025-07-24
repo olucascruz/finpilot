@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 100vh;
+    height: 90%;
     width: 100%;
 }
 
@@ -17,7 +17,7 @@ button{
     display: flex;
     justify-content: space-between;
     width: 70%;
-    margin-top: 145px;
+    margin-top: 75px;
 }
 
 .content{
@@ -31,18 +31,28 @@ height: 500px;
 }
 
 .content2{
-width: 1000px;
+width: 100%;
 height: 500px;
 // background-color:red;r
 
 }
 
 .content3{
-width: 1000px
-
+width: 100%;
+height: 500px;
 }
 
 .row-buttons button.actived {
   background-color: #1976d2; // ou a cor que quiser
   color: white;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #0b2f4a;
+    margin-bottom: 0;
+}
+
+.codemp{
+    margin-top: 1px;
 }
