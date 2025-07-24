@@ -1,0 +1,42 @@
+.employee-list-body {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 20px;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+}
+
+.titulo {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela th {
+  background: #e0e0e0;
+  padding: 8px;
+  text-align: left;
+}
+
+.tabela td {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.tabela tr:hover {
+  background-color: #e6f0ff;
+}
+
+.btn-gear {
+  background-color: #cfe3ff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,57 @@
+.container {
+  background-color: #cbdff0;
+  padding: 2rem;
+  height: 100vh;
+}
+
+.card {
+  background: #f9f9f9;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  padding: 1rem;
+  overflow: auto;
+}
+
+.solicitacoes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+.solicitacoes-table th{
+    width: 5%;
+}
+.solicitacoes-table th,
+.solicitacoes-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.solicitacoes-table th:first-child
+.solicitacoes-table td:first-child {
+  width: 20%;
+}
+
+.botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+button.recusar {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+button.aceitar {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}

@@ -1,20 +1,22 @@
 <div class="admin-body">
     <p>Código da empresa: LH123456</p>
     <div class="row-buttons">
-        <button matButton="elevated" class="actived">Cargos</button>
-        <button matButton="elevated">Solicitações</button>
-        <button matButton="elevated">Funcionários</button>
+        <button matButton="elevated"  [class.actived]="botaoAtivo === 'cargos'"  id="cargos" (click)="activeFunction($event)">Cargos</button>
+        <button matButton="elevated"  [class.actived]="botaoAtivo === 'solicitations'"  id="solicitations" (click)="activeFunction($event)">Solicitações</button>
+        <button matButton="elevated"  [class.actived]="botaoAtivo === 'employees'"id="employees" (click)="activeFunction($event)">Funcionários</button>
     </div>
 
     <div class="content">
-        <div id="cargos" class="content1">
+        <div *ngIf="botaoAtivo === 'cargos'" class="content1">
+            <app-table-roles></app-table-roles>
+        </div>
 
+        <div *ngIf="botaoAtivo === 'solicitations'" class="content2">
+            <app-users-request></app-users-request>
         </div>
-        <div id="solicitations" class="content2">
-            
-        </div>
-        <div id="employee" class="content3">
-            
+
+        <div *ngIf="botaoAtivo === 'employees'" class="content3">
+           <app-employee-list></app-employee-list>
         </div>
     </div>
 </div>

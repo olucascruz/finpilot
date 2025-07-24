@@ -5,7 +5,6 @@
     justify-content: flex-start;
     height: 100vh;
     width: 100%;
-    background-color: aqua;
 }
 
 
@@ -15,31 +14,35 @@ button{
 }
 
 .row-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
     margin-top: 145px;
 }
 
+.content{
+    margin-top: 50px;
+    width: 70%;
+}
 
 .content1{
-width: 500px;
+width: 100%;
 height: 500px;
-background-color: blue;
 }
 
 .content2{
-width: 500px;
+width: 1000px;
 height: 500px;
-background-color:red;
+// background-color:red;r
 
 }
 
 .content3{
-width: 500px;
-height: 500px;
-background-color: green;
+width: 1000px
 
 }
 
-.actived{
-    background-color: blue;
-    color: white;
+.row-buttons button.actived {
+  background-color: #1976d2; // ou a cor que quiser
+  color: white;
 }

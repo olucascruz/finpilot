@@ -1,0 +1,27 @@
+<div class="user-request-body">
+  <div class="card">
+    <table class="solicitacoes-table">
+      <thead>
+        <tr>
+          <th>Solicitações de acesso</th>
+          <th>nome</th>
+          <th>email</th>
+          <th>data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitacao of solicitacoes">
+          <td><input type="checkbox" [(ngModel)]="solicitacao.selecionado" /></td>
+          <td>{{ solicitacao.nome }}</td>
+          <td><strong>{{ solicitacao.email }}</strong></td>
+          <td>{{ solicitacao.data }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="botoes">
+      <button class="recusar" (click)="recusar()">Recusar</button>
+      <button class="aceitar" (click)="aceitar()">aceitar</button>
+    </div>
+  </div>
+</div>
