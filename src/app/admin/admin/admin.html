@@ -4,13 +4,27 @@
     
     <h1>Administração</h1>
     <p class="codemp">Código da empresa: LH123456</p>
-    <div class="row-buttons">
-        <button matButton="elevated"  [class.actived]="botaoAtivo === 'cargos'"  id="cargos" (click)="activeFunction($event)">Cargos</button>
-        <button matButton="elevated"  [class.actived]="botaoAtivo === 'solicitations'"  id="solicitations" (click)="activeFunction($event)">Solicitações</button>
-        <button matButton="elevated"  [class.actived]="botaoAtivo === 'employees'"id="employees" (click)="activeFunction($event)">Funcionários</button>
-    </div>
-
+  
     <div class="content">
+        <div class="row-buttons">
+            <div class="div-button">
+                <button  [class.actived]="botaoAtivo === 'cargos'"  id="cargos" (click)="activeFunction($event)">Cargos</button>
+                <div class="sombra" [hidden]="!(botaoAtivo ===  'cargos')"></div>
+                <div class="selected" [hidden]="!(botaoAtivo === 'cargos')"></div>
+            </div>
+            <div class="div-button">
+                <button  [class.actived]="botaoAtivo === 'solicitations'"  id="solicitations" (click)="activeFunction($event)">Solicitações</button>
+                <div class="sombra" [hidden]="!(botaoAtivo ===  'solicitations')"></div>
+
+                <div class="selected" [hidden]="!(botaoAtivo ===  'solicitations')"></div>
+            </div>
+            <div class="div-button">
+                <button  [class.actived]="botaoAtivo === 'employees'"id="employees" (click)="activeFunction($event)">Funcionários</button>
+                <div class="sombra" [hidden]="!(botaoAtivo === 'employees')"></div>
+                <div class="selected" [hidden]="!(botaoAtivo === 'employees')"></div>
+            </div>
+        </div>
+        <hr>
         <div *ngIf="botaoAtivo === 'cargos'" class="content1">
             <app-table-roles></app-table-roles>
         </div>
