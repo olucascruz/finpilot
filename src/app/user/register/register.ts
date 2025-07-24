@@ -5,10 +5,11 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { Navbar } from '../../pages/navbar/navbar';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, CommonModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule],
+  imports: [ReactiveFormsModule, CommonModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, Navbar],
   templateUrl: './register.html',
   styleUrl: './register.scss'
 })

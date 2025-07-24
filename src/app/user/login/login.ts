@@ -1,26 +1,43 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {FormControl, ReactiveFormsModule, FormGroup} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { Navbar } from '../../pages/navbar/navbar';
+
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, CommonModule, MatInputModule, MatFormFieldModule, MatIconModule, MatButtonModule],
+  standalone: true,
   templateUrl: './login.html',
-  styleUrl: './login.scss'
+  styleUrls: ['./login.scss'],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    Navbar
+  ]
 })
 export class Login {
-  showPassword = false;
-  formLogin = new FormGroup({
-    username: new FormControl(''),
-  });
   hide = true;
-  sendCredentials(){
-    const nameValue = this.formLogin.get('username')?.value;
-    const passwordValue = this.formLogin.get('password')?.value;
 
-    console.log(nameValue, passwordValue);
+  formLogin = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    senha: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    rememberMe: new FormControl(false)
+  });
+
+  sendCredentials() {
+    if (this.formLogin.valid) {
+      console.log('Dados enviados:', this.formLogin.value);
+    } else {
+      this.formLogin.markAllAsTouched();
+    }
   }
 }
