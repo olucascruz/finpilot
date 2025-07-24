@@ -4,31 +4,31 @@
   font-family: 'Poppins', sans-serif;
   background-color: #d0e2f2;
 
-  .sidebar {
-    background: #f0f0f0;
-    width: 220px;
-    padding: 1.5rem 1rem;
+.sidebar {
+  background: #f0f0f0;
+  width: 220px;
+  padding: 1.5rem 1rem;
+}
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-      li {
-        padding: 1rem;
-        cursor: pointer;
-        border-radius: 6px;
-        margin-bottom: 0.5rem;
-        transition: background 0.3s;
+.sidebar li {
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  transition: background 0.3s;
+}
 
-        &.active,
-        &:hover {
-          background-color: #dcdcdc;
-          font-weight: bold;
-        }
-      }
-    }
-  }
+.sidebar li.active,
+.sidebar li:hover {
+  background-color: #dcdcdc;
+  font-weight: bold;
+}
 
   .dashboard-main {
     flex: 1;
@@ -128,3 +128,4 @@
     }
   }
 }
+

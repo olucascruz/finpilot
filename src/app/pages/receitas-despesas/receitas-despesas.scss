@@ -1,0 +1,86 @@
+.filtros {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cards {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  .card {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 8px;
+    color: #333;
+
+    &.receita {
+      background-color: #d2f9d2;
+    }
+
+    &.despesa {
+      background-color: #ffd7d7;
+    }
+
+    &.saldo {
+      background-color: #c3dfff;
+    }
+
+    strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.acoes-topo {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
+
+    &.pendente {
+      background: #ddd;
+      color: #555;
+    }
+
+    &.cancelado {
+      background: #ffc7c7;
+      color: #a00;
+    }
+
+    &.pago {
+      background: #b2f3b2;
+      color: #157c15;
+    }
+
+    &.aguardando {
+      background: #ffff9c;
+      color: #888500;
+    }
+  }
+
+  .acoes {
+    display: flex;
+    gap: 0.5rem;
+  }
+}

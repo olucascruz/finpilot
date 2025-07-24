@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { Navbar } from '../../pages/navbar/navbar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ import { Navbar } from '../../pages/navbar/navbar';
     Navbar
   ]
 })
+
 export class Login {
   hide = true;
 
@@ -36,8 +38,18 @@ export class Login {
   sendCredentials() {
     if (this.formLogin.valid) {
       console.log('Dados enviados:', this.formLogin.value);
+      this.router.navigate(['/dashboard']);
     } else {
       this.formLogin.markAllAsTouched();
     }
   }
+
+
+  constructor(private router: Router) { }
+
+  irParaDashboard() {
+    this.router.navigate(['/dashboard']);
+  }
+
 }
+

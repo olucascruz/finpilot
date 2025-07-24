@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+
+<div class="pedidos-container">
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li class="active">Dashboard</li>
+        <li>Pedidos</li>
+        <li>Receitas & Despesas</li>
+        <li>Contas & Bancos</li>
+        <li>Metas</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="pedidos-main">
+    <header>
+      <h1>Pedidos</h1>
+    </header>
+
+    <form [formGroup]="filtroForm" class="filtro">
+      <div class="filtro-grupo">
+        <mat-form-field appearance="outline">
+          <mat-label>Período</mat-label>
+          <mat-select formControlName="periodo">
+            <mat-option value="hoje">Hoje</mat-option>
+            <mat-option value="semana">Esta semana</mat-option>
+            <mat-option value="mes">Este mês</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Método de pagamento</mat-label>
+          <mat-select formControlName="metodoPagamento">
+            <mat-option value="">Todos</mat-option>
+            <mat-option value="pix">Pix</mat-option>
+            <mat-option value="credito">Crédito</mat-option>
+            <mat-option value="debito">Débito</mat-option>
+            <mat-option value="boleto">Boleto</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Status do Repasse</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="">Todos</mat-option>
+            <mat-option value="pendente">Pendente</mat-option>
+            <mat-option value="pago">Pago</mat-option>
+            <mat-option value="cancelado">Cancelado</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="filtro-acoes">
+        <button mat-stroked-button color="primary" (click)="abrirFormularioPedido()">Criar pedido</button>
+        <button mat-stroked-button color="accent">Exportar</button>
+      </div>
+    </form>
+
+    <section class="row-pedidos" [formGroup]="selecionadosForm">
+      <div class="pedido-row header">
+        <mat-checkbox (change)="alternarSelecaoTodos($event)"></mat-checkbox>
+        <p><strong>Código</strong></p>
+        <p><strong>Data</strong></p>
+        <p><strong>Valor</strong></p>
+        <p><strong>Método de pagamento</strong></p>
+        <p><strong>Status</strong></p>
+        <span></span>
+      </div>
+
+      <div class="pedido-row" *ngFor="let pedido of pedidos; let i = index">
+        <mat-checkbox [formControl]="getControle(i)"></mat-checkbox>
+        <p>{{ pedido.codigo }}</p>
+        <p>{{ pedido.data }}</p>
+        <p>{{ pedido.valor | currency:'BRL' }}</p>
+        <p>{{ pedido.metodoPagamento }}</p>
+        <span [ngClass]="{
+          'status-pendente': pedido.status === 'Pendente',
+          'status-pago': pedido.status === 'Pago',
+          'status-cancelado': pedido.status === 'Cancelado'
+        }">{{ pedido.status }}</span>
+        <span class="acoes">
+          <button mat-icon-button (click)="editarPedido(pedido)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="excluirPedido(pedido)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </span>
+      </div>
+    </section>
+  </main>
+</div>

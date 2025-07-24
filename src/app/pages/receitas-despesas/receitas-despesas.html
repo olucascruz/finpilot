@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<div class="filtros">
+    <mat-form-field appearance="fill">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="filtro.tipo">
+            <mat-option value="todos">Todos</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Período</mat-label>
+        <mat-select [(ngModel)]="filtro.periodo">
+            <mat-option value="30">Últimos 30 dias</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <mat-select [(ngModel)]="filtro.categoria">
+            <mat-option value="todas">Todas</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="cards">
+    <div class="card receita">Receitas <strong>R$ {{ receitas | number:'1.2-2' }}</strong></div>
+    <div class="card despesa">Despesas <strong>R$ {{ despesas | number:'1.2-2' }}</strong></div>
+    <div class="card saldo">Saldo <strong>R$ {{ saldo | number:'1.2-2' }}</strong></div>
+</div>
+
+<div class="acoes-topo">
+    <button mat-raised-button color="primary">Lançamento</button>
+    <button mat-stroked-button>Exportar</button>
+</div>
+
+<table class="tabela">
+    <thead>
+        <tr>
+            <th><mat-checkbox></mat-checkbox></th>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of lancamentos">
+            <td><mat-checkbox></mat-checkbox></td>
+            <td>{{ item.data }}</td>
+            <td>{{ item.descricao }}</td>
+            <td>R$ {{ item.valor | number:'1.2-2' }}</td>
+            <td>
+                <span [ngClass]="'status ' + item.status">{{ item.status | titlecase }}</span>
+            </td>
+            <td class="acoes">
+                <button mat-icon-button><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button><mat-icon>delete</mat-icon></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
