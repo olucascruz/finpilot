@@ -1,0 +1,25 @@
+.criar-pedido-container {
+  background-color: #e6ecf0;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 480px;
+  margin: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .titulo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+}

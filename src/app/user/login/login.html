@@ -2,7 +2,7 @@
 <div class="login-container">
   <div class="login-box">
     <div class="login-left">
-      
+
       <h2>Acesse sua conta</h2>
       <p class="subtitle">Preencha seus dados</p>
 
@@ -20,12 +20,7 @@
 
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Senha</mat-label>
-          <input
-            matInput
-            [type]="hide ? 'password' : 'text'"
-            formControlName="senha"
-            placeholder="Digite sua senha"
-          />
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha" placeholder="Digite sua senha" />
           <button mat-icon-button matSuffix type="button" (click)="hide = !hide" tabindex="-1">
             <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
@@ -42,9 +37,12 @@
           <a href="#">Esqueceu sua senha?</a>
         </div>
 
-        <button mat-raised-button color="primary" class="btn-login" type="submit">
-          Login
-        </button>
+        <form [formGroup]="formLogin" (ngSubmit)="sendCredentials()">
+          <button mat-raised-button color="primary" class="btn-login" type="submit">
+            Login
+          </button>
+        </form>
+
 
         <p class="register-text">Não possui conta? <a routerLink="/cadastro">Cadastra-se</a></p>
       </form>
@@ -60,3 +58,4 @@
     </div>
   </div>
 </div>
+

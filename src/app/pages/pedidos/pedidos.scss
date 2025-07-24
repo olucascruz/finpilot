@@ -1,0 +1,128 @@
+.pedidos-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-color: #e3f0fa;
+}
+
+.sidebar {
+  background: #f9f9f9;
+  width: 220px;
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 1rem 1rem;
+      margin-bottom: 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover,
+      &.active {
+        background-color: #e0eaf6;
+        font-weight: 600;
+        color: #0b2f4a;
+      }
+    }
+  }
+}
+
+.pedidos-main {
+  flex: 1;
+  padding: 2rem 3rem;
+
+  header h1 {
+    font-size: 2.2rem;
+    color: #0b2f4a;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.filtro {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  .filtro-grupo {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    mat-form-field {
+      width: 200px;
+    }
+  }
+
+  .filtro-acoes {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.pedido-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 1fr 1fr 1fr 100px;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+
+  &.header {
+    background-color: #e5eaf2;
+    font-weight: bold;
+  }
+
+  .acoes {
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+
+  .status-pendente,
+  .status-pago,
+  .status-cancelado {
+    font-size: 0.75rem;          // menor
+    padding: 0.15rem 0.5rem;     // mais fino
+    line-height: 1;              // altura compacta
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .status-pendente {
+    background-color: #dddddd;
+    color: #555;
+  }
+
+  .status-pago {
+    background-color: #c9f7c9;
+    color: #257425;
+  }
+
+  .status-cancelado {
+    background-color: #f6baba;
+    color: #a32020;
+  }
+}
+
+
