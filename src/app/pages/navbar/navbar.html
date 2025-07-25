@@ -1,11 +1,11 @@
 <nav class="navbar">
     <div class="navbar-container">
 
-        <div class="navbar-left">
+        <div class="navbar-left" (click)="navigateTo('home')">
             <img src="LogoDeitada.png" alt="Logo deitada FinancePilot" class="navbar-logo-img">
         </div>
 
-        <ul class="navbar-center">
+        <ul *ngIf="!isLogged" class="navbar-center">
             <!-- <li><a routerLink="/" routerLinkActive="active">Início</a></li>
                 <li><a routerLink="/porqueEscolher" routerLinkActive="active">Sobre</a></li>
                 <li><a routerLink="/contato" routerLinkActive="active">Contato</a></li> -->
@@ -14,11 +14,31 @@
             <li><a [routerLink]="['/']" fragment="contato" routerLinkActive="active">Contato</a></li>
         </ul>
 
-        <div class="navbar-right">
+        <div *ngIf="!isLogged" class="navbar-right">
             <a routerLink="/login" routerLinkActive="active" class="btn-login">Login</a>
             <!-- <button class="btn-login" (click)="irParaLogin()">Login</button> -->
             <a routerLink="/register" routerLinkActive="active" class="btn-cadastro">Cadastrar</a>
             <!-- <button class="btn-cadastro" (click)="irParaCadastro()">Cadastro</button> -->
+        </div>
+        <div *ngIf="isLogged" class="navbar-right div-menu">
+            <button matIconButton [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon style="color: rgb(0, 0, 0);">menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+            <button mat-menu-item style="text-align: center;" (click)="navigateTo('profile')">
+                <span>Perfil</span>
+            </button>
+            <button mat-menu-item  style="text-align: center;" (click)="navigateTo('admin')">
+                <span>Admin</span>
+            </button>
+            <button mat-menu-item disabled style="text-align: center;">
+                <span>Trocar empresa</span>
+            </button>
+            <button mat-menu-item style="text-align: center;" (click)="navigateTo('')">
+                <span style="color: red;">Sair</span>
+            </button>
+            </mat-menu>
+
         </div>
     </div>
 </nav>

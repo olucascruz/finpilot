@@ -1,0 +1,75 @@
+.home-body{
+    overflow: hidden; /* corta qualquer scroll */
+}
+
+.row-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 50px;
+}
+button{
+    width: 450px;
+    height: 85px;
+    font-weight: bold;
+    color: #052340;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    z-index: 6;
+}
+
+button:hover{
+    background-color: #0066ff;
+    color: white;
+}
+
+.airplanes-group{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+}
+.fly{
+    position: absolute;
+    filter: blur(4px);
+    z-index: -1;
+    height: 150px;
+    width: 200px;
+    left: -150px; /* começa fora da tela */
+}
+
+
+
+.grid-buttons{
+    margin-top: 20px;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas de tamanhos iguais */
+    gap: 10px; /* espaço entre os itens */
+    z-index: 5;
+}
+.grid-buttons > :last-child:nth-child(odd) {
+  grid-column: 1 / -1; /* ocupar as duas colunas */
+  justify-self: center; /* centraliza o conteúdo dentro da célula */
+}
+
+.row-flex{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.row-flex > h1{
+    color: #052340;
+}
+
+h1{
+color: #052340;
+
+}

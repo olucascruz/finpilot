@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="div-home">
+    <h1 style="text-align: center;">Home</h1>
+    <div class="row-buttons">
+        <button >Criar empresas</button>
+        <button >Acessar empresa</button>
+    </div>
+    <div class="airplanes-group">
+        <img src="fly.png" alt="" class="fly" #plane1>
+        <img src="fly.png" alt="" class="fly" #plane2>
+        <img src="fly.png" alt="" class="fly" #plane3>
+        <img src="fly.png" alt="" class="fly" #plane4>
+    </div>
+
+    <div class="row-flex">
+        <h1>Painel de funcionalidades</h1>
+
+        <div  class="grid-buttons" >
+            <button *ngFor="let _function of functions"  (click)="navigateTo(_function.link)">{{_function.name}}</button>
+        </div>
+    </div>
+</div>

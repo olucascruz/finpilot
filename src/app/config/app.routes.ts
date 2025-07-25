@@ -9,11 +9,13 @@ import { Pedidos } from '../pages/pedidos/pedidos';
 import { Manutencao } from '../pages/manutencao/manutencao';
 import { CriarPedido } from '../pages/criar-pedido/criar-pedido';
 import { ReceitasDespesas } from '../pages/receitas-despesas/receitas-despesas';
+import { Home } from '../pages/home/home';
 
 export const routes: Routes = [
     { path:'', component: LadingPage},
     { path:'login', component: Login},
     { path:'register', component: Register},
+    { path:'home', component: Home},
     { path:'profile', component: Profile},
     { path:'admin', component: Admin},
     { path: 'dashboard', component: Dashboard},
