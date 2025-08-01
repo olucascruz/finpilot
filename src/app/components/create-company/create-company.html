@@ -1,0 +1,6 @@
+<form #meuForm="ngForm" (ngSubmit)="onSubmit()">
+  <input type="text" name="nome" [(ngModel)]="nome" required />
+  <input type="email" name="email" [(ngModel)]="email" required />
+
+  <button type="submit">Enviar</button>
+</form>
