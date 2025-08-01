@@ -3,9 +3,10 @@ import { Navbar } from '../navbar/navbar';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
+import { CreateCompany } from '../../components/create-company/create-company';
 @Component({
   selector: 'app-home',
-  imports: [Navbar, MatButtonModule, CommonModule],
+  imports: [Navbar, MatButtonModule, CommonModule, CreateCompany],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
@@ -20,6 +21,8 @@ export class Home {
     { name: 'Contas bancárias', link:''},
 
   ];
+
+  hasCompany: Boolean = false;
   private startTime: number | null = null;
   private screenWidth = 0;
 
