@@ -4,9 +4,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { CreateCompany } from '../../components/create-company/create-company';
+import { EnterCompany } from "../../components/enter-company/enter-company";
 @Component({
   selector: 'app-home',
-  imports: [Navbar, MatButtonModule, CommonModule, CreateCompany],
+  imports: [Navbar, MatButtonModule, CommonModule, CreateCompany, EnterCompany],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

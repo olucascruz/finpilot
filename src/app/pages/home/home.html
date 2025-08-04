@@ -1,5 +1,6 @@
-<app-navbar></app-navbar>
 <div class="div-home">
+    <app-enter-company></app-enter-company>
+    <app-navbar></app-navbar>
     <div class="airplanes-group">
         <img src="fly.png" alt="" class="fly" #plane1>
         <img src="fly.png" alt="" class="fly" #plane2>
@@ -13,7 +14,7 @@
         <button >Acessar empresa</button>
     </div>
     </div>
-    <app-create-company></app-create-company>
+    <!-- <app-create-company></app-create-company> -->
 
     <div class="row-flex" id="functions" *ngIf="hasCompany">
         <h1>Painel de funcionalidades</h1>
