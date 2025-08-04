@@ -1,5 +1,8 @@
 <div class="div-home">
-    <app-enter-company></app-enter-company>
+    <app-generic-form
+    [fields]="formConfig?.fields"
+    [title]="formConfig?.title || 'Título padrão'"
+    [aoEnviar]="formConfig?.onSubmit"></app-generic-form>
     <app-navbar></app-navbar>
     <div class="airplanes-group">
         <img src="fly.png" alt="" class="fly" #plane1>
