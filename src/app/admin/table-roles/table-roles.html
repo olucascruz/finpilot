@@ -16,23 +16,23 @@
     <tbody>
       <tr>
         <td><span class="icon-gear">-</span> Admin </td>
-        <td><input type="checkbox" checked></td>
-        <td><input type="checkbox" checked></td>
-        <td><input type="checkbox" checked></td>
-        <td><input type="checkbox" checked></td>
-        <td><input type="checkbox" checked></td>
-        <td><input type="checkbox" checked></td>
-        <td><input type="checkbox" checked></td>
+        <td><input type="checkbox" checked disabled></td>
+        <td><input type="checkbox" checked disabled></td>
+        <td><input type="checkbox" checked disabled></td>
+        <td><input type="checkbox" checked disabled></td>
+        <td><input type="checkbox" checked disabled></td>
+        <td><input type="checkbox" checked disabled></td>
+        <td><input type="checkbox" checked disabled></td>
       </tr>
       <tr>
         <td><span class="icon-gear">-</span> no access</td>
-        <td><input type="checkbox"></td>
-        <td><input type="checkbox"></td>
-        <td><input type="checkbox"></td>
-        <td><input type="checkbox"></td>
-        <td><input type="checkbox"></td>
-        <td><input type="checkbox"></td>
-        <td><input type="checkbox"></td>
+        <td><input type="checkbox" disabled></td>
+        <td><input type="checkbox" disabled></td>
+        <td><input type="checkbox" disabled></td>
+        <td><input type="checkbox" disabled></td>
+        <td><input type="checkbox" disabled></td>
+        <td><input type="checkbox" disabled></td>
+        <td><input type="checkbox" disabled></td>
       </tr>
       <tr>
         <td><span class="icon-gear">-</span> analista</td>
@@ -49,9 +49,14 @@
   </table>
   
   <div class="acoes">
-    <button class="btn-azul">Novo cargo</button>
+    <button class="btn-azul" (click)="abrirFormularioCreate()">Novo cargo</button>
     <button class="btn-verde">Salvar</button>
   </div>
-
 </div>
 </div>
+<app-generic-form  *ngIf="exibirCreateNewRoleForm"
+  [campos]="createNewRoleForm.fields"
+  [title]="createNewRoleForm.title || 'Título padrão'"
+  [aoEnviar]="createNewRoleForm.onSubmit"
+  (cancelar)="fecharFormularioCreate()"
+></app-generic-form>
