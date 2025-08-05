@@ -8,9 +8,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class CreateCompany {
   nome = '';
-email = '';
+  area = '';
+  state = '';
+  city='';
+  cnpj = '';
 
 onSubmit() {
-  console.log('Nome:', this.nome, 'Email:', this.email);
+  console.log('Nome:', this.nome);
 }
 }
