@@ -62,7 +62,7 @@ export class Pedidos implements OnInit {
       this.aplicarFiltro();
     });
   }
-
+  
   aplicarFiltro(): void {
     this.pedidosFiltrados = this.pedidos.filter(p =>
       (!this.filtros.codigo || p.codigo.toString().includes(this.filtros.codigo)) &&

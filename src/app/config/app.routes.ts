@@ -15,10 +15,13 @@ import { ContasBancarias } from '../pages/contas-bancarias/contas-bancarias';
 import { MetasVsRealizado } from '../pages/metas/metas';
 import { CriarPedido } from '../pages/criar-pedido/criar-pedido';
 import { NotFound } from '../pages/notfound/notfound';
+import { Home } from '../pages/home/home';
 
 export const routes: Routes = [
   // ROTAS SEM LAYOUT
   { path: '', component: LadingPage },
+  { path: '', component: LadingPage },
+  {path: 'home', component: Home },
   { path: 'LandingPage', component: LadingPage },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
@@ -40,5 +43,5 @@ export const routes: Routes = [
   },
 
   // Wildcard para rota não encontrada
-  { path: '**', component: NotFound }, // Redireciona para a página de carregamento
+  // { path: '**', component: NotFound }, // Redireciona para a página de carregamento
 ];

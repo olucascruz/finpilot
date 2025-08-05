@@ -1,3 +1,17 @@
+<app-generic-form
+  *ngIf="exibirCreateTransactionForm"
+  [campos]="createTransactionForm.fields"
+  [title]="createTransactionForm.title || 'Título padrão'"
+  [aoEnviar]="createTransactionForm.onSubmit"
+  (cancelar)="fecharFormularioCreateTransaction()"
+  ></app-generic-form>
+  <app-generic-form
+  *ngIf="exibirExportarTransactionsForm"
+  [campos]="exportTransactionsForm.fields"
+  [title]="exportTransactionsForm.title || 'Título padrão'"
+  [aoEnviar]="exportTransactionsForm.onSubmit"
+  (cancelar)="fecharFormularioExportarTransactions()"
+  ></app-generic-form>
 <div class="page-container">
   <h2 class="titulo">Receitas e Despesas</h2>
 
@@ -28,8 +42,8 @@
     </div>
 
     <div class="btn-group">
-      <button class="btn blue" (click)="novoLancamento()">+ Lançamento</button>
-      <button class="btn outline" (click)="exportar()">↓ Exportar</button>
+      <button class="btn blue" (click)="abrirFormularioCreateTransaction()">+ Lançamento</button>
+      <button class="btn outline" (click)=" abrirFormularioExportarTransactions()">↓ Exportar</button>
     </div>
   </div>
 

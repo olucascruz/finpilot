@@ -10,7 +10,10 @@ import { MatTableModule } from '@angular/material/table';
 import { combineLatest } from 'rxjs';
 import { PedidosService } from '../../service/pedidos.service';
 import { ReceitaDespesa, ReceitaDespesaService } from '../../service/receita-despesa.service';
+import { GenericForm } from '../../components/generic-form/generic-form';
+import { createTransactionForm } from './forms/createTransaction';
 
+import { exportTransactionsForm } from './forms/exportTransactions';
 interface ReceitaDespesaExtendida extends ReceitaDespesa {
   origemPedido?: boolean;
 }
@@ -26,7 +29,8 @@ interface ReceitaDespesaExtendida extends ReceitaDespesa {
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    GenericForm
   ],
   templateUrl: './receitas-despesas.html',
   styleUrls: ['./receitas-despesas.scss']
@@ -37,6 +41,23 @@ export class ReceitasDespesas implements OnInit {
     periodo: 'mes',
     categoria: 'todas'
   };
+
+  createTransactionForm = createTransactionForm;
+  exportTransactionsForm = exportTransactionsForm;
+  exibirExportarTransactionsForm = false;
+  abrirFormularioExportarTransactions() {
+    this.exibirExportarTransactionsForm = true;
+  }
+  fecharFormularioExportarTransactions() {
+    this.exibirExportarTransactionsForm = false;
+  }
+  exibirCreateTransactionForm = false;
+  abrirFormularioCreateTransaction() {
+    this.exibirCreateTransactionForm = true;
+  }
+  fecharFormularioCreateTransaction() {
+    this.exibirCreateTransactionForm = false;
+  }
 
   data: ReceitaDespesaExtendida[] = [];
   displayedColumns = ['descricao', 'tipo', 'valor', 'status', 'acoes'];
