@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="header">
+    <h2 class="titulo">
+      Metas
+    </h2>
+    <div class="actions">
+      <button mat-raised-button color="primary" (click)="abrirFormularioNovaMeta()">
+        <mat-icon>add</mat-icon>
+        Nova Meta
+      </button>
+    </div>
+  </div>
+
+  <div class="cards-metas">
+    <mat-card class="card" *ngFor="let meta of metas" [ngClass]="meta.categoria.toLowerCase()"
+      (click)="abrirDetalhes(meta)">
+      <mat-card-header>
+        <mat-icon>{{ meta.icone }}</mat-icon>
+        <mat-card-title>{{ meta.categoria }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Meta: <strong>R$ {{ meta.valorMeta | number: '1.0-0' }}</strong></p>
+        <p>Realizado: <strong>R$ {{ meta.valorRealizado | number: '1.0-0' }}</strong></p>
+        <p>Atingido: <span>{{ meta.atingido | number: '1.1-1' }}%</span></p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="grafico-wrapper">
+    <canvas id="graficoMetas"></canvas>
+  </div>
+
+  <div class="alerts">
+    <div class="alert" *ngFor="let alerta of getAlertasEspecificos()" [ngClass]="alerta.cor">
+      <mat-icon>{{ alerta.icone }}</mat-icon>
+      {{ alerta.mensagem }}
+    </div>
+  </div>
+</div>

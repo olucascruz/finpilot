@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Manutencao } from './manutencao';
+import { MetasDialog } from './metas-dialog';
 
-describe('Manutencao', () => {
-  let component: Manutencao;
-  let fixture: ComponentFixture<Manutencao>;
+describe('MetasDialog', () => {
+  let component: MetasDialog;
+  let fixture: ComponentFixture<MetasDialog>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Manutencao]
+      imports: [MetasDialog]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Manutencao);
+    fixture = TestBed.createComponent(MetasDialog);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

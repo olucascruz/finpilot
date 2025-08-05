@@ -1,0 +1,15 @@
+<div class="page-container">
+  <h2 class="titulo">Contas Bancárias</h2>
+
+  <button class="btn-nova-conta">+ Nova Conta</button>
+
+  <div class="contas-container">
+    <div class="card-conta" *ngFor="let conta of contas">
+      <div class="info">
+        <h3>{{ conta.nome }}</h3>
+        <span class="tipo">{{ conta.tipo }}</span>
+      </div>
+      <button class="btn-detalhes">Ver detalhes</button>
+    </div>
+  </div>
+</div>

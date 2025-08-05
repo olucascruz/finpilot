@@ -1,8 +1,56 @@
+// Fontes e tamanhos padrão
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  background-color: #f4f9ff;
+  margin: 0;
+  padding: 0;
+}
+
+// Título padrão
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: #0d1a33;
+  margin-bottom: 0.5rem;
+}
+
+// Botões
+button, .mat-button, .mat-raised-button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  border-radius: 8px;
+  text-transform: none;
+}
+
+// Cards
+.mat-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+// Inputs
+.mat-form-field {
+  font-family: 'Inter', sans-serif;
+}
+
 $primary-color: #C5D6E6;
 $font-stack: 'Roboto', sans-serif;
 $padding-base: 0;
-$confirm-color: #47FF6F;
-$confirm-color-hover: #2ea547;
+$confirm-color: #111be6;
+$confirm-color-hover: #083358;
 
-$cancel-color: #FF4747;
+$cancel-color: #dc1219;
 $warning-color: #ffe647;
+
+$font-title-xl: 2rem;     // ~32px
+$font-title-lg: 1.5rem;   // ~24px
+$font-subtitle: 1.25rem;  // ~20px
+$font-body: 1rem;         // ~16px
+$font-small: 0.875rem;    // ~14px
+
+$font-weight-bold: 700;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+

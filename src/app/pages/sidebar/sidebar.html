@@ -1,11 +1,21 @@
 <aside class="sidebar">
   <nav>
     <ul>
-      <li class="active">Dashboard</li>
-      <li>Pedidos</li>
-      <li>Receitas & Despesas</li>
-      <li>Contas & Bancos</li>
-      <li>Metas</li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a [routerLink]="['/dashboard']">Dashboard</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/pedidos']">Pedidos</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/receita']">Receitas e Despesas</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/contas']">Contas Bancárias</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/metas']">Metas</a>
+      </li>
     </ul>
   </nav>
 </aside>

@@ -1,0 +1,204 @@
+@use '../../../styles/variables' as *;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.container {
+  background-color: #eaf3fb;
+  padding: 2rem;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0b2f4a;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: $font-weight-bold;
+    color: #0d1a33;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    mat-icon {
+      font-size: 2rem;
+      color: #1976d2;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+.cards-metas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: space-between;
+
+  mat-card {
+    flex: 1 1 300px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    mat-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      mat-icon {
+        font-size: 1.4rem;
+        color: inherit;
+      }
+
+      mat-card-title {
+        font-size: 1.1rem;
+        font-weight: $font-weight-bold;
+        color: inherit;
+      }
+    }
+
+    mat-card-content {
+      p {
+        margin: 4px 0;
+
+        strong {
+          font-weight: $font-weight-bold;
+        }
+
+        span {
+          font-weight: $font-weight-medium;
+        }
+      }
+    }
+
+    &.receita {
+
+      mat-card-title,
+      mat-icon {
+        color: #1976d2;
+      }
+    }
+
+    &.despesa {
+
+      mat-card-title,
+      mat-icon {
+        color: #e53935;
+      }
+    }
+
+    &.lucro {
+
+      mat-card-title,
+      mat-icon {
+        color: #10a817;
+      }
+    }
+  }
+}
+
+.grafico-wrapper {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  height: 220px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .alert {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    font-weight: $font-weight-medium;
+    font-size: 0.95rem;
+
+    mat-icon {
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+
+    &.error {
+      background-color: #fdecea;
+      color: #c62828;
+    }
+
+    &.warning {
+      background-color: #fff4e5;
+      color: #ed6c02;
+    }
+
+    &.info {
+      background-color: #e3f2fd;
+      color: #0288d1;
+    }
+
+    &.success {
+      background-color: #e6f4ea;
+      color: #2e7d32;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .actions {
+      margin-top: 1rem;
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+
+  .cards-metas {
+    flex-direction: column;
+  }
+}

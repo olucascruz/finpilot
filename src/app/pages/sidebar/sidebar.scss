@@ -1,28 +1,24 @@
-:host {
-  display: block;
-  height: 100vh;
-  background: #f0f0f0;
-  width: 220px;
-  padding: 1.5rem 1rem;
-  box-sizing: border-box;
-}
-
-nav ul {
+.sidebar ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-nav li {
-  padding: 1rem;
-  cursor: pointer;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
-  transition: background 0.3s;
+.sidebar ul li {
+  list-style: none;
+}
 
-  &.active,
-  &:hover {
-    background-color: #dcdcdc;
-    font-weight: bold;
-  }
+.sidebar ul li a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: #083358;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar ul li.active a {
+  background-color: #dce5ee;
+  font-weight: bold;
+  border-left: 4px solid #1976d2;
+  color: #083358;
 }

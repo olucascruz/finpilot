@@ -22,6 +22,6 @@ describe('ReceitasDespesasComponent', () => {
   });
 
   it('deve exibir 5 lançamentos', () => {
-    expect(component.lancamentos.length).toBe(5);
+    expect(component.data.length).toBe(5);
   });
 });

@@ -1,0 +1,25 @@
+<h2>Nova Meta</h2>
+
+<form [formGroup]="form" (ngSubmit)="salvar()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Categoria</mat-label>
+    <mat-select formControlName="categoria">
+      <mat-option *ngFor="let c of categorias" [value]="c">{{ c }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Valor da Meta</mat-label>
+    <input matInput type="number" formControlName="valorMeta" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Valor Realizado</mat-label>
+    <input matInput type="number" formControlName="valorRealizado" />
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">Salvar</button>
+  </div>
+</form>

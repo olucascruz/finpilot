@@ -1,93 +1,121 @@
-<app-navbar></app-navbar>
+<div class="container">
+  <div class="header">
+    <h2 class="titulo">Pedidos</h2>
+    <div class="actions-wrapper">
+      <button class="btn-primary" (click)="abrirFormularioPedido()">+ Criar pedido</button>
+      <button class="btn-outline" (click)="exportarParaExcel()">⇩ Exportar</button>
+    </div>
+  </div>
 
-<div class="pedidos-container">
-  <aside class="sidebar">
-    <nav>
-      <ul>
-        <li class="active">Dashboard</li>
-        <li>Pedidos</li>
-        <li>Receitas & Despesas</li>
-        <li>Contas & Bancos</li>
-        <li>Metas</li>
-      </ul>
-    </nav>
-  </aside>
+  <div class="tabela-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th class="th-checkbox">
+            <input type="checkbox" [(ngModel)]="selecionarTodos" (change)="selecionarTodosChange()" />
+          </th>
 
-  <main class="pedidos-main">
-    <header>
-      <h1>Pedidos</h1>
-    </header>
+          <th class="th-codigo">
+            <div class="th-content">
+              <span>Código</span>
+              <input type="text" [(ngModel)]="filtros.codigo" (input)="aplicarFiltro()" />
+            </div>
+          </th>
 
-    <form [formGroup]="filtroForm" class="filtro">
-      <div class="filtro-grupo">
-        <mat-form-field appearance="outline">
-          <mat-label>Período</mat-label>
-          <mat-select formControlName="periodo">
-            <mat-option value="hoje">Hoje</mat-option>
-            <mat-option value="semana">Esta semana</mat-option>
-            <mat-option value="mes">Este mês</mat-option>
-          </mat-select>
-        </mat-form-field>
+          <th class="th-data">
+            <div class="th-content">
+              <span>Data</span>
+              <div class="dropdown-container" (click)="toggleDropdown()" [class.aberto]="dropdownAberto">
+                <input type="text" [value]="filtros.datasSelecionadas.map(formatarData).join(', ')" readonly
+                  placeholder="Selecionar..." />
+                <div class="dropdown-opcoes" *ngIf="dropdownAberto" (click)="$event.stopPropagation()">
 
-        <mat-form-field appearance="outline">
-          <mat-label>Método de pagamento</mat-label>
-          <mat-select formControlName="metodoPagamento">
-            <mat-option value="">Todos</mat-option>
-            <mat-option value="pix">Pix</mat-option>
-            <mat-option value="credito">Crédito</mat-option>
-            <mat-option value="debito">Débito</mat-option>
-            <mat-option value="boleto">Boleto</mat-option>
-          </mat-select>
-        </mat-form-field>
+                  <!-- Selecionar todos -->
+                  <label class="dropdown-item">
+                    <input type="checkbox" [checked]="todasDatasSelecionadas" (change)="alternarTodasDatas($event)" />
+                    <span>Selecionar todos</span>
+                  </label>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Status do Repasse</mat-label>
-          <mat-select formControlName="status">
-            <mat-option value="">Todos</mat-option>
-            <mat-option value="pendente">Pendente</mat-option>
-            <mat-option value="pago">Pago</mat-option>
-            <mat-option value="cancelado">Cancelado</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+                  <!-- Ordenação -->
+                  <div class="ordenar">
+                    <button class="ordenar-btn" (click)="ordenarDatas(true); $event.stopPropagation()">A–Z</button>
+                    <button class="ordenar-btn" (click)="ordenarDatas(false); $event.stopPropagation()">Z–A</button>
+                  </div>
 
-      <div class="filtro-acoes">
-        <button mat-stroked-button color="primary" (click)="abrirFormularioPedido()">Criar pedido</button>
-        <button mat-stroked-button color="accent">Exportar</button>
-      </div>
-    </form>
+                  <!-- Lista de datas -->
+                  <label class="dropdown-item" *ngFor="let data of datasOrdenadas">
+                    <input type="checkbox" [checked]="filtros.datasSelecionadas.includes(data)"
+                      (change)="onCheckboxChange(data, $event)" />
+                    <span>{{ formatarData(data) }}</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </th>
 
-    <section class="row-pedidos" [formGroup]="selecionadosForm">
-      <div class="pedido-row header">
-        <mat-checkbox (change)="alternarSelecaoTodos($event)"></mat-checkbox>
-        <p><strong>Código</strong></p>
-        <p><strong>Data</strong></p>
-        <p><strong>Valor</strong></p>
-        <p><strong>Método de pagamento</strong></p>
-        <p><strong>Status</strong></p>
-        <span></span>
-      </div>
+          <th class="th-valor">
+            <div class="th-content">
+              <span>Valor</span>
+              <input type="number" [(ngModel)]="filtros.valor" (input)="aplicarFiltro()" />
+            </div>
+          </th>
 
-      <div class="pedido-row" *ngFor="let pedido of pedidos; let i = index">
-        <mat-checkbox [formControl]="getControle(i)"></mat-checkbox>
-        <p>{{ pedido.codigo }}</p>
-        <p>{{ pedido.data }}</p>
-        <p>{{ pedido.valor | currency:'BRL' }}</p>
-        <p>{{ pedido.metodoPagamento }}</p>
-        <span [ngClass]="{
-          'status-pendente': pedido.status === 'Pendente',
-          'status-pago': pedido.status === 'Pago',
-          'status-cancelado': pedido.status === 'Cancelado'
-        }">{{ pedido.status }}</span>
-        <span class="acoes">
-          <button mat-icon-button (click)="editarPedido(pedido)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button color="warn" (click)="excluirPedido(pedido)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </span>
-      </div>
-    </section>
-  </main>
+          <th class="th-metodo">
+            <div class="th-content">
+              <span>Método</span>
+              <select [(ngModel)]="filtros.metodo" (change)="aplicarFiltro()">
+                <option value="">Todos</option>
+                <option *ngFor="let metodo of metodosUnicos" [value]="metodo">{{ metodo }}</option>
+              </select>
+            </div>
+          </th>
+
+          <th class="th-status">
+            <div class="th-content">
+              <span>Status</span>
+              <select [(ngModel)]="filtros.status" (change)="aplicarFiltro()">
+                <option value="">Todos</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Cancelado">Cancelado</option>
+                <option value="Pago">Pago</option>
+              </select>
+            </div>
+          </th>
+
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let pedido of pedidosFiltrados; let i = index">
+          <td><input type="checkbox" [(ngModel)]="pedidoSelecionado[i]" (change)="atualizarSelecionarTodos()" /></td>
+          <td>{{ pedido.codigo }}</td>
+          <td>{{ pedido.data }}</td>
+          <td>R$ {{ pedido.valor | number: '1.2-2' }}</td>
+          <td>{{ pedido.metodo }}</td>
+          <td>
+            <span class="badge" [ngClass]="{
+                'badge-pendente': pedido.status === 'Pendente',
+                'badge-cancelado': pedido.status === 'Cancelado',
+                'badge-pago': pedido.status === 'Pago'
+              }">
+              {{ pedido.status }}
+            </span>
+          </td>
+          <td class="acoes">
+            <button (click)="editarPedido(pedido)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button (click)="excluirPedido(pedido)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<app-formulario-criar-pedido *ngIf="mostrarFormulario" (fechar)="fecharFormularioPedido()"
+  (pedidoCriado)="onPedidoCriado($event)">
+</app-formulario-criar-pedido>

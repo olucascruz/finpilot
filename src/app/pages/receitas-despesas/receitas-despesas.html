@@ -1,62 +1,73 @@
-<app-navbar></app-navbar>
-<div class="filtros">
-    <mat-form-field appearance="fill">
-        <mat-label>Tipo</mat-label>
-        <mat-select [(ngModel)]="filtro.tipo">
-            <mat-option value="todos">Todos</mat-option>
-        </mat-select>
-    </mat-form-field>
+<div class="page-container">
+  <h2 class="titulo">Receitas e Despesas</h2>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Período</mat-label>
-        <mat-select [(ngModel)]="filtro.periodo">
-            <mat-option value="30">Últimos 30 dias</mat-option>
-        </mat-select>
-    </mat-form-field>
+  <div class="filtros">
+    <div class="form-group">
+      <select [(ngModel)]="filtro.tipo" required>
+        <option value="todos">Todos</option>
+        <option value="receita">Receita</option>
+        <option value="despesa">Despesa</option>
+      </select>
+      <label>Tipo</label>
+    </div>
+    <div class="form-group">
+      <select [(ngModel)]="filtro.periodo" required>
+        <option value="mes">Este mês</option>
+        <option value="semana">Esta semana</option>
+        <option value="hoje">Hoje</option>
+      </select>
+      <label>Período</label>
+    </div>
+    <div class="form-group">
+      <select [(ngModel)]="filtro.categoria" required>
+        <option value="todas">Todas</option>
+        <option value="alimentacao">Alimentação</option>
+        <option value="transporte">Transporte</option>
+      </select>
+      <label>Categoria</label>
+    </div>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Categoria</mat-label>
-        <mat-select [(ngModel)]="filtro.categoria">
-            <mat-option value="todas">Todas</mat-option>
-        </mat-select>
-    </mat-form-field>
-</div>
+    <div class="btn-group">
+      <button class="btn blue" (click)="novoLancamento()">+ Lançamento</button>
+      <button class="btn outline" (click)="exportar()">↓ Exportar</button>
+    </div>
+  </div>
 
-<div class="cards">
-    <div class="card receita">Receitas <strong>R$ {{ receitas | number:'1.2-2' }}</strong></div>
-    <div class="card despesa">Despesas <strong>R$ {{ despesas | number:'1.2-2' }}</strong></div>
-    <div class="card saldo">Saldo <strong>R$ {{ saldo | number:'1.2-2' }}</strong></div>
-</div>
+  <div class="cards">
+    <div class="card blue">
+      <h3>Receitas</h3>
+      <p>R$ {{ receitas | number: '1.2-2' }}</p>
+    </div>
+    <div class="card red">
+      <h3>Despesas</h3>
+      <p>R$ {{ despesas | number: '1.2-2' }}</p>
+    </div>
+    <div class="card green">
+      <h3>Saldo</h3>
+      <p>R$ {{ saldo | number: '1.2-2' }}</p>
+    </div>
+  </div>
 
-<div class="acoes-topo">
-    <button mat-raised-button color="primary">Lançamento</button>
-    <button mat-stroked-button>Exportar</button>
-</div>
-
-<table class="tabela">
+  <table class="tabela">
     <thead>
-        <tr>
-            <th><mat-checkbox></mat-checkbox></th>
-            <th>Data</th>
-            <th>Descrição</th>
-            <th>Valor</th>
-            <th>Status</th>
-            <th>Ações</th>
-        </tr>
+      <tr>
+        <th>Descrição</th>
+        <th>Tipo</th>
+        <th>Valor</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of lancamentos">
-            <td><mat-checkbox></mat-checkbox></td>
-            <td>{{ item.data }}</td>
-            <td>{{ item.descricao }}</td>
-            <td>R$ {{ item.valor | number:'1.2-2' }}</td>
-            <td>
-                <span [ngClass]="'status ' + item.status">{{ item.status | titlecase }}</span>
-            </td>
-            <td class="acoes">
-                <button mat-icon-button><mat-icon>edit</mat-icon></button>
-                <button mat-icon-button><mat-icon>delete</mat-icon></button>
-            </td>
-        </tr>
+      <tr *ngFor="let row of data">
+        <td>{{ row.descricao }}</td>
+        <td>{{ row.tipo }}</td>
+        <td>R$ {{ row.valor | number: '1.2-2' }}</td>
+        <td>{{ row.status }}</td>
+        <td class="acoes">
+          <button (click)="editar(row)">✎</button>
+        </td>
+      </tr>
     </tbody>
-</table>
+  </table>
+</div>

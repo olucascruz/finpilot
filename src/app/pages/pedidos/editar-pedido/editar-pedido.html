@@ -1,0 +1,32 @@
+<h2>Editar Pedido</h2>
+
+<form [formGroup]="form" (ngSubmit)="salvar()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Valor</mat-label>
+    <input matInput type="number" formControlName="valor" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Método de pagamento</mat-label>
+    <mat-select formControlName="metodo">
+      <mat-option value="Pix">Pix</mat-option>
+      <mat-option value="Crédito">Crédito</mat-option>
+      <mat-option value="Débito">Débito</mat-option>
+      <mat-option value="Boleto">Boleto</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="Pendente">Pendente</mat-option>
+      <mat-option value="Pago">Pago</mat-option>
+      <mat-option value="Cancelado">Cancelado</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="botoes">
+    <button mat-stroked-button type="button" (click)="cancelar()">Cancelar</button>
+    <button mat-flat-button color="primary" type="submit">Salvar</button>
+  </div>
+</form>

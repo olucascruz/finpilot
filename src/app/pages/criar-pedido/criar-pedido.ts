@@ -1,56 +1,56 @@
-import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-criar-pedido',
+  selector: 'app-formulario-criar-pedido',
   standalone: true,
   templateUrl: './criar-pedido.html',
   styleUrls: ['./criar-pedido.scss'],
   imports: [
-    CommonModule,
     ReactiveFormsModule,
+    CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatSelectModule,
+    MatOptionModule
   ]
 })
 export class CriarPedido {
+  @Output() fechar = new EventEmitter<void>();
+  @Output() pedidoCriado = new EventEmitter<any>();
+
   pedidoForm: FormGroup;
-  modoEdicao: boolean = false;
 
-  constructor(
-    private fb: FormBuilder,
-    private dialogRef: MatDialogRef<CriarPedido>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
+  constructor(private fb: FormBuilder) {
     this.pedidoForm = this.fb.group({
-      cliente: [''],
-      produto: [''],
       valor: [''],
-      formaPagamento: [''],
-      observacao: ['']
+      metodo: ['']
     });
+  }
 
-    if (data) {
-      this.modoEdicao = true;
-      this.pedidoForm.patchValue(data);
-    }
+  onCancel() {
+    this.fechar.emit();
   }
 
   onSubmit() {
     if (this.pedidoForm.valid) {
-      this.dialogRef.close(this.pedidoForm.value);
-    }
-  }
+      const novoPedido = {
+        codigo: 0, // será definido em pedidos.ts
+        data: new Date().toISOString().split('T')[0],
+        valor: parseFloat(this.pedidoForm.value.valor),
+        metodo: this.pedidoForm.value.metodo,
+        status: 'Pendente'
+      };
 
-  onCancel() {
-    this.dialogRef.close();
+      this.pedidoCriado.emit(novoPedido);
+      this.fechar.emit();
+    }
   }
 }

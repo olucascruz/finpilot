@@ -1,37 +1,24 @@
-<div class="criar-pedido-container" [formGroup]="pedidoForm">
+<form class="dialog-content" [formGroup]="pedidoForm" (ngSubmit)="onSubmit()">
   <h2 class="titulo">Criar pedido</h2>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Cliente</mat-label>
-    <input matInput formControlName="cliente" />
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Produto/Serviço</mat-label>
-    <input matInput formControlName="produto" />
-  </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Valor</mat-label>
     <span matPrefix>R$&nbsp;</span>
-    <input matInput type="number" formControlName="valor" />
+    <input matInput type="number" formControlName="valor" step="0.01" />
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Forma de pagamento</mat-label>
-    <input matInput formControlName="formaPagamento" />
+    <mat-select formControlName="metodo">
+      <mat-option value="Pix">Pix</mat-option>
+      <mat-option value="Crédito">Crédito</mat-option>
+      <mat-option value="Débito">Débito</mat-option>
+      <mat-option value="Boleto">Boleto</mat-option>
+    </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Observação</mat-label>
-    <textarea matInput formControlName="observacao" rows="4"></textarea>
-  </mat-form-field>
-
-  <div class="botoes">
-    <button mat-stroked-button color="warn" type="button" (click)="onCancel()">Cancelar</button>
-    <button mat-flat-button color="primary" type="submit" (click)="onSubmit()">
-      {{ modoEdicao ? 'Salvar' : 'Criar' }}
-    </button>
-
+  <div class="buttons">
+    <button mat-stroked-button type="button" color="warn" (click)="onCancel()">Cancelar</button>
+    <button mat-flat-button type="submit" color="primary">Criar</button>
   </div>
-</div>
+</form>

@@ -1,86 +1,160 @@
+.page-container {
+  padding: 2rem;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0b2f4a;
+  margin-bottom: 1.5rem;
+}
+
 .filtros {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+
+  .form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+
+    select {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: #fff;
+      transition: border 0.3s;
+    }
+
+    label {
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      background: #e3f2fd;
+      padding: 0 5px;
+      font-size: 0.85rem;
+      color: #666;
+      transition: 0.3s;
+      pointer-events: none;
+    }
+
+    select:focus {
+      border-color: #1976d2;
+    }
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+
+      &.blue {
+        background: #1976d2;
+        color: #fff;
+
+        &:hover {
+          background: #125a9c;
+        }
+      }
+
+      &.outline {
+        border: 2px solid #1976d2;
+        color: #1976d2;
+        background: transparent;
+
+        &:hover {
+          background: #e3f2fd;
+        }
+      }
+    }
+  }
 }
 
 .cards {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   .card {
     flex: 1;
-    padding: 1rem;
-    border-radius: 8px;
-    color: #333;
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 
-    &.receita {
-      background-color: #d2f9d2;
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
     }
 
-    &.despesa {
-      background-color: #ffd7d7;
+    p {
+      font-size: 1.4rem;
+      font-weight: bold;
     }
 
-    &.saldo {
-      background-color: #c3dfff;
+    &.blue {
+      border-left: 6px solid #1976d2;
+      color: #1976d2;
     }
 
-    strong {
-      display: block;
-      font-size: 1.3rem;
-      margin-top: 0.5rem;
+    &.red {
+      border-left: 6px solid #d32f2f;
+      color: #d32f2f;
+    }
+
+    &.green {
+      border-left: 6px solid #388e3c;
+      color: #388e3c;
     }
   }
-}
-
-.acoes-topo {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-bottom: 1rem;
 }
 
 .tabela {
   width: 100%;
   border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 
   th, td {
-    padding: 0.75rem;
+    padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #eee;
   }
 
-  .status {
-    padding: 0.3rem 0.8rem;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 0.9rem;
-
-    &.pendente {
-      background: #ddd;
-      color: #555;
-    }
-
-    &.cancelado {
-      background: #ffc7c7;
-      color: #a00;
-    }
-
-    &.pago {
-      background: #b2f3b2;
-      color: #157c15;
-    }
-
-    &.aguardando {
-      background: #ffff9c;
-      color: #888500;
-    }
+  th {
+    background: #f1f1f1;
+    font-weight: bold;
   }
 
   .acoes {
     display: flex;
     gap: 0.5rem;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
   }
 }
