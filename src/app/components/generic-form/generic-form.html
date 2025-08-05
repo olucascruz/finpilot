@@ -1,0 +1,21 @@
+<div class="blur">
+<form [formGroup]="formulario" (ngSubmit)="submit()">
+    <img src="FinPilot600px.png" alt="">
+     <h2>{{ title }}</h2>
+    <div *ngFor="let campo of campos">
+    <label>{{ campo.label }}</label>
+    <input
+    
+      [type]="campo.tipo"
+      [formControlName]="campo.nome"
+    />
+  </div>
+
+    <div class="row-buttons">
+        <button class="cancel">Cancelar</button>
+
+        <button type="submit" class="confirm">Solicitar</button>
+    </div>
+</form>
+
+</div>

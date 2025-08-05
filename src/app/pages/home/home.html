@@ -4,6 +4,11 @@
     <app-navbar></app-navbar>
 
 
+    <app-generic-form
+    [fields]="formConfig?.fields"
+    [title]="formConfig?.title || 'Título padrão'"
+    [aoEnviar]="formConfig?.onSubmit"></app-generic-form>
+    <app-navbar></app-navbar>
     <div class="airplanes-group">
         <img src="fly.png" alt="" class="fly" #plane1>
         <img src="fly.png" alt="" class="fly" #plane2>
@@ -17,6 +22,10 @@
         <button >Acessar empresa</button>
     </div>
     </div>
+<<<<<<< HEAD
+=======
+    <!-- <app-create-company></app-create-company> -->
+>>>>>>> 470a74768043a019deffbf1763e56c20c1a0f1d6
 
     <div class="row-flex" id="functions" *ngIf="hasCompany">
         <h1>Painel de funcionalidades</h1>

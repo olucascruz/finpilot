@@ -4,9 +4,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { CreateCompany } from '../../components/create-company/create-company';
+import { EnterCompany } from "../../components/enter-company/enter-company";
+import { GenericForm } from '../../components/generic-form/generic-form';
 @Component({
   selector: 'app-home',
-  imports: [Navbar, MatButtonModule, CommonModule, CreateCompany],
+  imports: [Navbar, MatButtonModule, CommonModule, CreateCompany, EnterCompany, GenericForm],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
@@ -21,8 +23,34 @@ export class Home {
     { name: 'Contas bancárias', link:''},
 
   ];
-
-  hasCompany: Boolean = false;
+  hasCompany = true;
+  formConfig = {
+    title: 'Cadastro de Produto',
+    fields: [
+      { name: 'nome', type: 'text', label: 'Nome' },
+      { name: 'preco', type: 'number', label: 'Preço' },
+    ],
+    onSubmit: (data: any) => {
+      console.log('Form enviado', data);
+    },
+  };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   private startTime: number | null = null;
   private screenWidth = 0;
 
