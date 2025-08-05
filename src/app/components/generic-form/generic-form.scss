@@ -17,12 +17,12 @@ form{
     background-color: #E2E8EB;
     padding-left: 40px;
     padding-right: 40px;
-
-    padding-bottom: 50px;
-    padding-top: 50px;
+    padding-bottom: 40px;
+    padding-top: 40px;
     border-radius: 25px;
     justify-content: center;
     align-items: center;
+    width: 30%;
 }
 
 form img{
@@ -32,11 +32,12 @@ form img{
 
 
 form input{
-    width: 400px;
-    height: 40px;
+    width: 100%;
+    height: 30px;
     border-radius: 45px;
     border: none;
     padding-left: 20px;
+
 }
 
 form button{
@@ -51,7 +52,7 @@ form button{
 .row-buttons{
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
 }
 
 .cancel{
@@ -62,3 +63,17 @@ form button{
     background-color: #0A2E50;
     color: white;
 }
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 20px;
+    padding-right: 20px;
+}
+
+.campo label{
+    color: #052340;
+    font-weight: bold;
+    padding-left: 10px;
+  }

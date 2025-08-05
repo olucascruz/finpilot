@@ -13,26 +13,32 @@ import { CommonModule } from '@angular/common'; // também é necessário em sta
 
 
 export class GenericForm {
+  _campos: Campo[] = [];
+  @Output() cancelar = new EventEmitter<void>();
+
+  cancelarFormulario(): void {
+    this.cancelar.emit();
+  }
   @Input() set campos(value: Campo[]) {
     if (value) {
+      console.log(value);
       this._campos = value;
       this.criarFormulario(value);
     }
   }
 
   @Input() aoEnviar?: (valores: any) => void;
-  @Input() title: string = 'Formulário';
+  @Input() title?: string = 'Formulário';
 
   formulario!: FormGroup;
-  private _campos: Campo[] = [];
 
   constructor(private fb: FormBuilder) {}
 
   private criarFormulario(campos: Campo[]): void {
     const grupo: Record<string, any> = {};
-
+    console.log("campos", campos)
     for (const campo of campos) {
-      grupo[campo.nome] = [false, campo.requerido ? Validators.required : []];
+      grupo[campo.nome] = ['', campo.requerido ? Validators.required : []];
     }
 
     this.formulario = this.fb.group(grupo);

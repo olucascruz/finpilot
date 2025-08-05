@@ -3,12 +3,13 @@ import { Navbar } from '../navbar/navbar';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
-import { CreateCompany } from '../../components/create-company/create-company';
-import { EnterCompany } from "../../components/enter-company/enter-company";
 import { GenericForm } from '../../components/generic-form/generic-form';
+import { createCompanyForm } from './forms/createCompany';
+import { enterCompanyForm } from './forms/enterCompany';
+
 @Component({
   selector: 'app-home',
-  imports: [Navbar, MatButtonModule, CommonModule, CreateCompany, EnterCompany, GenericForm],
+  imports: [Navbar, MatButtonModule, CommonModule, GenericForm],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
@@ -23,34 +24,41 @@ export class Home {
     { name: 'Contas bancárias', link:''},
 
   ];
-  hasCompany = true;
-  formConfig = {
-    title: 'Cadastro de Produto',
-    fields: [
-      { name: 'nome', type: 'text', label: 'Nome' },
-      { name: 'preco', type: 'number', label: 'Preço' },
-    ],
-    onSubmit: (data: any) => {
-      console.log('Form enviado', data);
-    },
-  };
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  hasCompany = false
+
+  createCompanyForm = createCompanyForm;
+  enterCompanyForm = enterCompanyForm;
+  exibirCreateCompanyForm  = false;
+  exibirEnterCompanyForm  = false;
+
+
+  abrirFormularioCreate() {
+    this.exibirCreateCompanyForm= true;
+  }
+  fecharFormularioCreate() {
+    this.exibirCreateCompanyForm = false;
+  }
+  abrirFormularioEnter() {
+    this.exibirEnterCompanyForm= true;
+  }
+
+  fecharFormularioEnter() {
+    this.exibirEnterCompanyForm = false;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   private startTime: number | null = null;
   private screenWidth = 0;
 
@@ -106,7 +114,7 @@ export class Home {
 
       // rotação baseada na inclinação
       const rotation = Math.atan2(dy, speed) * (180 / Math.PI);
-  
+
     // Aplica transformação
     plane.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
   });

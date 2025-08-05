@@ -1,18 +1,18 @@
 <div class="blur">
-<form [formGroup]="formulario" (ngSubmit)="submit()">
-    <img src="FinPilot600px.png" alt="">
-     <h2>{{ title }}</h2>
-    <div *ngFor="let campo of campos">
+  <form [formGroup]="formulario" (ngSubmit)="submit()">
+  <img src="FinPilot600px.png" alt="">
+  <h3>{{title}}</h3>
+  <div *ngFor="let campo of _campos" class="campo">
     <label>{{ campo.label }}</label>
     <input
-    
-      [type]="campo.tipo"
+      [type]="campo.tipo || 'text'"
       [formControlName]="campo.nome"
+      [placeholder]="campo.label || ''"
+      [required]="campo.requerido ?? false"
     />
   </div>
-
     <div class="row-buttons">
-        <button class="cancel">Cancelar</button>
+        <button (click)="cancelarFormulario()" class="cancel">Cancelar</button>
 
         <button type="submit" class="confirm">Solicitar</button>
     </div>
