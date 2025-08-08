@@ -6,7 +6,7 @@
       <h2>Acesse sua conta</h2>
       <p class="subtitle">Preencha seus dados</p>
 
-      <form [formGroup]="formLogin" (ngSubmit)="sendCredentials()">
+      <form [formGroup]="formLogin" (ngSubmit)="login()">
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>E-mail</mat-label>
           <input matInput formControlName="email" placeholder="Digite seu e-mail" />
@@ -37,11 +37,10 @@
           <a href="#">Esqueceu sua senha?</a>
         </div>
 
-        <form [formGroup]="formLogin" (ngSubmit)="sendCredentials()">
           <button mat-raised-button color="primary" class="btn-login" type="submit">
             Login
           </button>
-        </form>
+
 
 
         <p class="register-text">Não possui conta? <a routerLink="/cadastro">Cadastra-se</a></p>

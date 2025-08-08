@@ -20,9 +20,7 @@ import { Home } from '../pages/home/home';
 export const routes: Routes = [
   // ROTAS SEM LAYOUT
   { path: '', component: LadingPage },
-  { path: '', component: LadingPage },
   {path: 'home', component: Home },
-  { path: 'LandingPage', component: LadingPage },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'profile', component: Profile },
